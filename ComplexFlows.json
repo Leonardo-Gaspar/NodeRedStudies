@@ -1,0 +1,526 @@
+[
+    {
+        "id": "28e5beb441895b5d",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "158c536a195297fb",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "53710f9471f0c911",
+        "type": "inject",
+        "z": "28e5beb441895b5d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Joe",
+        "payloadType": "str",
+        "x": 130,
+        "y": 80,
+        "wires": [
+            [
+                "e22cd90cc1073969"
+            ]
+        ]
+    },
+    {
+        "id": "c7f396001dd7b572",
+        "type": "debug",
+        "z": "28e5beb441895b5d",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "e22cd90cc1073969",
+        "type": "change",
+        "z": "28e5beb441895b5d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "name",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 100,
+        "wires": [
+            [
+                "c7f396001dd7b572"
+            ]
+        ]
+    },
+    {
+        "id": "e52b8bec7bafa158",
+        "type": "inject",
+        "z": "28e5beb441895b5d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Steve",
+        "payloadType": "str",
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "e22cd90cc1073969"
+            ]
+        ]
+    },
+    {
+        "id": "740038de72e9d632",
+        "type": "inject",
+        "z": "28e5beb441895b5d",
+        "name": "Start Line",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 240,
+        "wires": [
+            [
+                "babb58ec63e1378d"
+            ]
+        ]
+    },
+    {
+        "id": "babb58ec63e1378d",
+        "type": "change",
+        "z": "28e5beb441895b5d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "time_started",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d0f4274882fa2448",
+        "type": "inject",
+        "z": "28e5beb441895b5d",
+        "name": "End Line",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 80,
+        "y": 360,
+        "wires": [
+            [
+                "fd300f31b70577e1"
+            ]
+        ]
+    },
+    {
+        "id": "192c91823c6e4250",
+        "type": "change",
+        "z": "28e5beb441895b5d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "time_ended",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 340,
+        "wires": [
+            [
+                "1e9808b4a905f6ec"
+            ]
+        ]
+    },
+    {
+        "id": "fd300f31b70577e1",
+        "type": "switch",
+        "z": "28e5beb441895b5d",
+        "name": "",
+        "property": "time_started",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 210,
+        "y": 360,
+        "wires": [
+            [
+                "192c91823c6e4250"
+            ],
+            [
+                "fcdfd84f18cd65cd"
+            ]
+        ]
+    },
+    {
+        "id": "fcdfd84f18cd65cd",
+        "type": "change",
+        "z": "28e5beb441895b5d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Process has not started",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 380,
+        "wires": [
+            [
+                "c9024b6ba2217b21"
+            ]
+        ]
+    },
+    {
+        "id": "c9024b6ba2217b21",
+        "type": "debug",
+        "z": "28e5beb441895b5d",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "1e9808b4a905f6ec",
+        "type": "change",
+        "z": "28e5beb441895b5d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "($flowContext('time_ended') - $flowContext('time_started')) / 1000",
+                "tot": "jsonata"
+            },
+            {
+                "t": "delete",
+                "p": "time_started",
+                "pt": "flow"
+            },
+            {
+                "t": "delete",
+                "p": "time_ended",
+                "pt": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 340,
+        "wires": [
+            [
+                "3f8e5294f8701a02"
+            ]
+        ]
+    },
+    {
+        "id": "3f8e5294f8701a02",
+        "type": "debug",
+        "z": "28e5beb441895b5d",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "b1b909a9c6edd237",
+        "type": "inject",
+        "z": "158c536a195297fb",
+        "name": "Joe - Arrived",
+        "props": [
+            {
+                "p": "name",
+                "v": "Joe",
+                "vt": "str"
+            },
+            {
+                "p": "isHome",
+                "v": "true",
+                "vt": "bool"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 80,
+        "wires": [
+            [
+                "3a55352a0921843e"
+            ]
+        ]
+    },
+    {
+        "id": "439da058bff91008",
+        "type": "inject",
+        "z": "158c536a195297fb",
+        "name": "Joe - Leaves",
+        "props": [
+            {
+                "p": "name",
+                "v": "Joe",
+                "vt": "str"
+            },
+            {
+                "p": "isHome",
+                "v": "false",
+                "vt": "bool"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 150,
+        "y": 120,
+        "wires": [
+            [
+                "3a55352a0921843e"
+            ]
+        ]
+    },
+    {
+        "id": "ccbf398d756f92e1",
+        "type": "change",
+        "z": "158c536a195297fb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "family[msg.name]",
+                "pt": "global",
+                "to": "isHome",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b74b1ae47c0edd40",
+        "type": "inject",
+        "z": "158c536a195297fb",
+        "name": "Steve - Arrived",
+        "props": [
+            {
+                "p": "name",
+                "v": "Steve",
+                "vt": "str"
+            },
+            {
+                "p": "isHome",
+                "v": "true",
+                "vt": "bool"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 460,
+        "y": 80,
+        "wires": [
+            [
+                "20cfbe3c4df6f169"
+            ]
+        ]
+    },
+    {
+        "id": "1b7c2cbd9171cb29",
+        "type": "inject",
+        "z": "158c536a195297fb",
+        "name": "Steve - Leaves",
+        "props": [
+            {
+                "p": "name",
+                "v": "Steve",
+                "vt": "str"
+            },
+            {
+                "p": "isHome",
+                "v": "false",
+                "vt": "bool"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 460,
+        "y": 120,
+        "wires": [
+            [
+                "20cfbe3c4df6f169"
+            ]
+        ]
+    },
+    {
+        "id": "20cfbe3c4df6f169",
+        "type": "link out",
+        "z": "158c536a195297fb",
+        "name": "link out 3",
+        "mode": "link",
+        "links": [
+            "0dc2fe00013ad08e"
+        ],
+        "x": 645,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "3a55352a0921843e",
+        "type": "link out",
+        "z": "158c536a195297fb",
+        "name": "link out 4",
+        "mode": "link",
+        "links": [
+            "0dc2fe00013ad08e"
+        ],
+        "x": 305,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "0dc2fe00013ad08e",
+        "type": "link in",
+        "z": "158c536a195297fb",
+        "name": "link in 2",
+        "links": [
+            "20cfbe3c4df6f169",
+            "3a55352a0921843e"
+        ],
+        "x": 75,
+        "y": 340,
+        "wires": [
+            [
+                "ccbf398d756f92e1"
+            ]
+        ]
+    }
+]
