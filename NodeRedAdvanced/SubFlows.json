@@ -1,0 +1,273 @@
+[
+    {
+        "id": "cea45a992a741682",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "cbb08cad37587dd5",
+        "type": "subflow",
+        "name": "Supabase Query",
+        "info": "",
+        "category": "",
+        "in": [],
+        "out": [],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99",
+        "status": {
+            "x": 600,
+            "y": 180,
+            "wires": [
+                {
+                    "id": "165f9ecf7622ae30",
+                    "port": 0
+                },
+                {
+                    "id": "75d978b98eee88b8",
+                    "port": 0
+                },
+                {
+                    "id": "38e42b6d2555212d",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "cbf310457f1b9fbe",
+        "type": "function",
+        "z": "cbb08cad37587dd5",
+        "name": "Supabase Query",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 80,
+        "wires": [
+            [
+                "930f154b6a47f336",
+                "165f9ecf7622ae30"
+            ]
+        ]
+    },
+    {
+        "id": "b7132d9fd9e9a16b",
+        "type": "link in",
+        "z": "cbb08cad37587dd5",
+        "name": "link in 1",
+        "links": [],
+        "x": 85,
+        "y": 80,
+        "wires": [
+            [
+                "cbf310457f1b9fbe",
+                "75d978b98eee88b8"
+            ]
+        ]
+    },
+    {
+        "id": "930f154b6a47f336",
+        "type": "link out",
+        "z": "cbb08cad37587dd5",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [],
+        "x": 485,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "165f9ecf7622ae30",
+        "type": "change",
+        "z": "cbb08cad37587dd5",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.text",
+                "pt": "msg",
+                "to": "Query Complete",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.shape",
+                "pt": "msg",
+                "to": "dot",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.fill",
+                "pt": "msg",
+                "to": "green",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "75d978b98eee88b8",
+        "type": "change",
+        "z": "cbb08cad37587dd5",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.text",
+                "pt": "msg",
+                "to": "Querying...",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.shape",
+                "pt": "msg",
+                "to": "dot",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.fill",
+                "pt": "msg",
+                "to": "blue",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 260,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "496a0397170fa826",
+        "type": "catch",
+        "z": "cbb08cad37587dd5",
+        "name": "",
+        "scope": [
+            "cbf310457f1b9fbe"
+        ],
+        "uncaught": false,
+        "x": 230,
+        "y": 260,
+        "wires": [
+            [
+                "38e42b6d2555212d"
+            ]
+        ]
+    },
+    {
+        "id": "38e42b6d2555212d",
+        "type": "change",
+        "z": "cbb08cad37587dd5",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.text",
+                "pt": "msg",
+                "to": "Something went wrong",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.shape",
+                "pt": "msg",
+                "to": "dot",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.fill",
+                "pt": "msg",
+                "to": "red",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a0cb81b9e7b32a8b",
+        "type": "subflow:cbb08cad37587dd5",
+        "z": "cea45a992a741682",
+        "name": "",
+        "x": 300,
+        "y": 100,
+        "wires": [],
+        "icon": "node-red/leveldb.svg"
+    },
+    {
+        "id": "429ff9504fe53cb0",
+        "type": "inject",
+        "z": "cea45a992a741682",
+        "name": "all",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    }
+]
