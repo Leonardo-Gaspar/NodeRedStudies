@@ -1,0 +1,195 @@
+[
+    {
+        "id": "b01b4f42420141c4",
+        "type": "tab",
+        "label": "Catch Node",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1c0417a1d36e0901",
+        "type": "inject",
+        "z": "b01b4f42420141c4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 40,
+        "wires": [
+            [
+                "bd39aec22618196f"
+            ]
+        ]
+    },
+    {
+        "id": "bd39aec22618196f",
+        "type": "function",
+        "z": "b01b4f42420141c4",
+        "name": "function 1",
+        "func": "node.error(\"Something went wrong\", {\n    type: 'BAD_REQUEST'\n})\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 40,
+        "wires": [
+            [
+                "bc1f169150c90444"
+            ]
+        ]
+    },
+    {
+        "id": "be10af615e2bb059",
+        "type": "catch",
+        "z": "b01b4f42420141c4",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "cd4b9c7852d800ac"
+            ]
+        ]
+    },
+    {
+        "id": "bc1f169150c90444",
+        "type": "debug",
+        "z": "b01b4f42420141c4",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "cd4b9c7852d800ac",
+        "type": "switch",
+        "z": "b01b4f42420141c4",
+        "name": "",
+        "property": "type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "BAD_REQUEST",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 350,
+        "y": 180,
+        "wires": [
+            [
+                "965d3215da7f0fa9"
+            ],
+            [
+                "be88dd5ad61f658c"
+            ]
+        ]
+    },
+    {
+        "id": "965d3215da7f0fa9",
+        "type": "debug",
+        "z": "b01b4f42420141c4",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "be88dd5ad61f658c",
+        "type": "debug",
+        "z": "b01b4f42420141c4",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "f376cfa575f6020a",
+        "type": "function",
+        "z": "b01b4f42420141c4",
+        "name": "function 2",
+        "func": "node.error(\"Something went wrong\", {\n    type: 'NOT_FOUND'\n})\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "507046cf7ef9f75f",
+        "type": "inject",
+        "z": "b01b4f42420141c4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 80,
+        "wires": [
+            [
+                "f376cfa575f6020a"
+            ]
+        ]
+    }
+]
