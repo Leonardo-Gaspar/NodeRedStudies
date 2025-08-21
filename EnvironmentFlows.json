@@ -1,0 +1,414 @@
+[
+    {
+        "id": "8c08a657f975c1f5",
+        "type": "tab",
+        "label": "Environment Variables",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a326cd6d67a3fb4e",
+        "type": "tab",
+        "label": "Production",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c63e11a7d1b1a41c",
+        "type": "tab",
+        "label": "Development",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "634da7c0bd082eef",
+        "type": "inject",
+        "z": "8c08a657f975c1f5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "COURSE",
+        "payloadType": "env",
+        "x": 170,
+        "y": 160,
+        "wires": [
+            [
+                "8a90a3ea03419b72"
+            ]
+        ]
+    },
+    {
+        "id": "513f5090bf3e33e7",
+        "type": "debug",
+        "z": "8c08a657f975c1f5",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "59bcd3eb41e7d519",
+        "type": "inject",
+        "z": "8c08a657f975c1f5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "NAME",
+        "payloadType": "env",
+        "x": 170,
+        "y": 100,
+        "wires": [
+            [
+                "513f5090bf3e33e7"
+            ]
+        ]
+    },
+    {
+        "id": "8a90a3ea03419b72",
+        "type": "debug",
+        "z": "8c08a657f975c1f5",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "a4d93017731bd91c",
+        "type": "switch",
+        "z": "8c08a657f975c1f5",
+        "name": "",
+        "property": "MODE",
+        "propertyType": "env",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "production",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "development",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 310,
+        "y": 280,
+        "wires": [
+            [
+                "3ca1c531ef0955cc"
+            ],
+            [
+                "28208e790c3bc979"
+            ]
+        ]
+    },
+    {
+        "id": "4c357ee46df4a26a",
+        "type": "inject",
+        "z": "8c08a657f975c1f5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 280,
+        "wires": [
+            [
+                "a4d93017731bd91c"
+            ]
+        ]
+    },
+    {
+        "id": "28208e790c3bc979",
+        "type": "link out",
+        "z": "8c08a657f975c1f5",
+        "name": "Development Out",
+        "mode": "link",
+        "links": [
+            "715121b85c8ae722"
+        ],
+        "x": 415,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "3ca1c531ef0955cc",
+        "type": "link out",
+        "z": "8c08a657f975c1f5",
+        "name": "Production Out",
+        "mode": "link",
+        "links": [
+            "87fdf83c2212b686"
+        ],
+        "x": 415,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "2d43adfb74289c49",
+        "type": "change",
+        "z": "8c08a657f975c1f5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "NAME",
+                "tot": "env"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 400,
+        "wires": [
+            [
+                "372264165cd42851"
+            ]
+        ]
+    },
+    {
+        "id": "0cea8b804306acc7",
+        "type": "inject",
+        "z": "8c08a657f975c1f5",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 420,
+        "wires": [
+            [
+                "2d43adfb74289c49",
+                "eda2de9e722b10c3"
+            ]
+        ]
+    },
+    {
+        "id": "372264165cd42851",
+        "type": "debug",
+        "z": "8c08a657f975c1f5",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "eda2de9e722b10c3",
+        "type": "change",
+        "z": "8c08a657f975c1f5",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "\"Hi \" & $env(\"NAME\") & \", u ok?\"",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 440,
+        "wires": [
+            [
+                "372264165cd42851"
+            ]
+        ]
+    },
+    {
+        "id": "87fdf83c2212b686",
+        "type": "link in",
+        "z": "a326cd6d67a3fb4e",
+        "name": "Production In",
+        "links": [
+            "3ca1c531ef0955cc"
+        ],
+        "x": 95,
+        "y": 100,
+        "wires": [
+            [
+                "2fa3ffee031b1598"
+            ]
+        ]
+    },
+    {
+        "id": "2fa3ffee031b1598",
+        "type": "change",
+        "z": "a326cd6d67a3fb4e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "You're running in Production",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 240,
+        "y": 100,
+        "wires": [
+            [
+                "b2d2af56a98bc744"
+            ]
+        ]
+    },
+    {
+        "id": "b2d2af56a98bc744",
+        "type": "debug",
+        "z": "a326cd6d67a3fb4e",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "715121b85c8ae722",
+        "type": "link in",
+        "z": "c63e11a7d1b1a41c",
+        "name": "Development In",
+        "links": [
+            "28208e790c3bc979"
+        ],
+        "x": 95,
+        "y": 100,
+        "wires": [
+            [
+                "4637ec1e06f77f8b"
+            ]
+        ]
+    },
+    {
+        "id": "4637ec1e06f77f8b",
+        "type": "change",
+        "z": "c63e11a7d1b1a41c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "You're running in Development",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 240,
+        "y": 100,
+        "wires": [
+            [
+                "fe6a46346c29a9c0"
+            ]
+        ]
+    },
+    {
+        "id": "fe6a46346c29a9c0",
+        "type": "debug",
+        "z": "c63e11a7d1b1a41c",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 100,
+        "wires": []
+    }
+]
