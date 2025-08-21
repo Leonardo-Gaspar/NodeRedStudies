@@ -1,0 +1,885 @@
+[
+    {
+        "id": "5c991107a3ac116a",
+        "type": "tab",
+        "label": "Function Node",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8c4782e078cdb495",
+        "type": "junction",
+        "z": "5c991107a3ac116a",
+        "x": 240,
+        "y": 220,
+        "wires": [
+            [
+                "ca75be3ba247f97a"
+            ]
+        ]
+    },
+    {
+        "id": "1fe97bc408a4f6ea",
+        "type": "junction",
+        "z": "5c991107a3ac116a",
+        "x": 200,
+        "y": 1160,
+        "wires": [
+            [
+                "777b5a60fc5a7d93"
+            ]
+        ]
+    },
+    {
+        "id": "285b9aa429886584",
+        "type": "inject",
+        "z": "5c991107a3ac116a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "10",
+        "payloadType": "num",
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "8c4782e078cdb495"
+            ]
+        ]
+    },
+    {
+        "id": "ca75be3ba247f97a",
+        "type": "function",
+        "z": "5c991107a3ac116a",
+        "name": "If/Else",
+        "func": "\nif (msg.payload > 7) {\n    msg.payload = \"This payload is high\"\n    return msg;\n}else if (msg.payload > 3) {\n    msg.payload = \"This payload is in the middle\"\n    return msg;\n}else {\n    msg.payload = \"This payload is low\"\n    return msg;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 220,
+        "wires": [
+            [
+                "2ccd19747375b403"
+            ]
+        ]
+    },
+    {
+        "id": "2ccd19747375b403",
+        "type": "debug",
+        "z": "5c991107a3ac116a",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "abc813bbae571723",
+        "type": "comment",
+        "z": "5c991107a3ac116a",
+        "name": "Basic JS",
+        "info": "",
+        "x": 120,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "30efad8eecedc342",
+        "type": "function",
+        "z": "5c991107a3ac116a",
+        "name": "Hello World",
+        "func": "msg.payload = msg.payload * 2\nmsg.anything = \"Hello World\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 60,
+        "wires": [
+            [
+                "5ea7b273caef9f35"
+            ]
+        ]
+    },
+    {
+        "id": "fb076bc789959a84",
+        "type": "inject",
+        "z": "5c991107a3ac116a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 60,
+        "wires": [
+            [
+                "30efad8eecedc342"
+            ]
+        ]
+    },
+    {
+        "id": "5ea7b273caef9f35",
+        "type": "debug",
+        "z": "5c991107a3ac116a",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "1141a42eb389e75a",
+        "type": "inject",
+        "z": "5c991107a3ac116a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "5",
+        "payloadType": "num",
+        "x": 130,
+        "y": 220,
+        "wires": [
+            [
+                "8c4782e078cdb495"
+            ]
+        ]
+    },
+    {
+        "id": "2f2d0cd6f167356b",
+        "type": "inject",
+        "z": "5c991107a3ac116a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "3",
+        "payloadType": "num",
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "8c4782e078cdb495"
+            ]
+        ]
+    },
+    {
+        "id": "525a8a15245108a5",
+        "type": "inject",
+        "z": "5c991107a3ac116a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"Apples\", \"Bananas\", \"Pears\"]",
+        "payloadType": "json",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [
+                "98776d249ede0817"
+            ]
+        ]
+    },
+    {
+        "id": "98776d249ede0817",
+        "type": "function",
+        "z": "5c991107a3ac116a",
+        "name": "Loop For",
+        "func": "let fruits = ''\n\nfor (let index = 0; index < msg.payload.length; index++) {\n    const fruit = msg.payload[index];\n    fruits = fruits + fruit + '\\n'\n    \n}\nmsg.payload = fruits\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 380,
+        "wires": [
+            [
+                "7fd57c63c7603695"
+            ]
+        ]
+    },
+    {
+        "id": "7fd57c63c7603695",
+        "type": "debug",
+        "z": "5c991107a3ac116a",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "698eecb59fdc4e74",
+        "type": "inject",
+        "z": "5c991107a3ac116a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"Apples\", \"Bananas\", \"Pears\"]",
+        "payloadType": "json",
+        "x": 130,
+        "y": 520,
+        "wires": [
+            [
+                "0281d305cf8efa22"
+            ]
+        ]
+    },
+    {
+        "id": "0281d305cf8efa22",
+        "type": "function",
+        "z": "5c991107a3ac116a",
+        "name": "Loop For",
+        "func": "let msgs = []\n\nfor (let index = 0; index < msg.payload.length; index++) {\n    const fruit = msg.payload[index];\n    msgs.push({\n        payload: fruit\n    })\n    \n}\nreturn msgs",
+        "outputs": 3,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 520,
+        "wires": [
+            [
+                "31a01fd8cc535074"
+            ],
+            [
+                "f8996958dafcdc09"
+            ],
+            [
+                "d30f15e02c51ac67"
+            ]
+        ]
+    },
+    {
+        "id": "31a01fd8cc535074",
+        "type": "debug",
+        "z": "5c991107a3ac116a",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "f8996958dafcdc09",
+        "type": "debug",
+        "z": "5c991107a3ac116a",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "d30f15e02c51ac67",
+        "type": "debug",
+        "z": "5c991107a3ac116a",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "0f3b9e37793b5f29",
+        "type": "inject",
+        "z": "5c991107a3ac116a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 130,
+        "y": 680,
+        "wires": [
+            [
+                "45478b92f7d8c92e"
+            ]
+        ]
+    },
+    {
+        "id": "45478b92f7d8c92e",
+        "type": "function",
+        "z": "5c991107a3ac116a",
+        "name": "If/Else Double ",
+        "func": "if (msg.payload === true){\n    msg.payload = \"This payload is TRUE\"\n    return [msg, null];\n}else{\n    msg.payload = \"This payload is FALSE\"\n    return [null, msg];\n}\nreturn msg;",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 700,
+        "wires": [
+            [
+                "07c5646e7be7944f"
+            ],
+            [
+                "fd9a24af53a6c16c"
+            ]
+        ]
+    },
+    {
+        "id": "2f6f1dfd729174e9",
+        "type": "inject",
+        "z": "5c991107a3ac116a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 130,
+        "y": 720,
+        "wires": [
+            [
+                "45478b92f7d8c92e"
+            ]
+        ]
+    },
+    {
+        "id": "07c5646e7be7944f",
+        "type": "debug",
+        "z": "5c991107a3ac116a",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "fd9a24af53a6c16c",
+        "type": "debug",
+        "z": "5c991107a3ac116a",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "62bafd5903a8e35b",
+        "type": "inject",
+        "z": "5c991107a3ac116a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"Apples\", \"Bananas\", \"Pears\"]",
+        "payloadType": "json",
+        "x": 130,
+        "y": 840,
+        "wires": [
+            [
+                "2973c4d8ce466bc5"
+            ]
+        ]
+    },
+    {
+        "id": "2973c4d8ce466bc5",
+        "type": "function",
+        "z": "5c991107a3ac116a",
+        "name": "Loop For Multiple ",
+        "func": "for (let index = 0; index < msg.payload.length; index++) {\n    const fruit = msg.payload[index];\n    node.send({\n        payload: fruit\n    })\n}\nnode.status({\n    fill:\"green\",\n    shape:\"ring\",\n    text:\"Passed\"});",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 840,
+        "wires": [
+            [
+                "4ccc9a87b03d24e3"
+            ]
+        ]
+    },
+    {
+        "id": "4ccc9a87b03d24e3",
+        "type": "debug",
+        "z": "5c991107a3ac116a",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "a94f241a4c78536f",
+        "type": "comment",
+        "z": "5c991107a3ac116a",
+        "name": "Node Status",
+        "info": "",
+        "x": 130,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "ea0db109f544c223",
+        "type": "comment",
+        "z": "5c991107a3ac116a",
+        "name": "Node Context Store",
+        "info": "",
+        "x": 130,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "8d840d9c0801970f",
+        "type": "function",
+        "z": "5c991107a3ac116a",
+        "name": "Status Message",
+        "func": "node.status({\n    fill:\"red\",\n    shape:\"ring\",\n    text:\"Error\"});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 1000,
+        "wires": [
+            [
+                "38c5db57df2fddb2"
+            ]
+        ]
+    },
+    {
+        "id": "f642ef1660698c12",
+        "type": "inject",
+        "z": "5c991107a3ac116a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 1000,
+        "wires": [
+            [
+                "8d840d9c0801970f"
+            ]
+        ]
+    },
+    {
+        "id": "38c5db57df2fddb2",
+        "type": "debug",
+        "z": "5c991107a3ac116a",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "777b5a60fc5a7d93",
+        "type": "function",
+        "z": "5c991107a3ac116a",
+        "name": "Status Message TImer",
+        "func": "const datetime = (new Date()).getTime()\nconst myVar = 123\n\nif (msg.payload === 'start'){\n    context.set('started', datetime)\n\n    node.status({\n        fill:\"green\",\n        shape:\"ring\",\n        text:\"Timer Running\"\n    });\n    \n}else{\n    const started = context.get('started')\n    msg.payload = datetime - started\n\n    node.status({\n        fill:\"red\",\n        shape:\"ring\",\n        text:\"Timer Stopped\"\n    });\n\n    return msg\n\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1160,
+        "wires": [
+            [
+                "0cc03f0f800c901a"
+            ]
+        ]
+    },
+    {
+        "id": "0cc03f0f800c901a",
+        "type": "debug",
+        "z": "5c991107a3ac116a",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "ad96aa2c5871621a",
+        "type": "inject",
+        "z": "5c991107a3ac116a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "start",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1140,
+        "wires": [
+            [
+                "1fe97bc408a4f6ea"
+            ]
+        ]
+    },
+    {
+        "id": "43391dbafcb934c8",
+        "type": "inject",
+        "z": "5c991107a3ac116a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "stop",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1180,
+        "wires": [
+            [
+                "1fe97bc408a4f6ea"
+            ]
+        ]
+    },
+    {
+        "id": "268535e3072d2097",
+        "type": "function",
+        "z": "5c991107a3ac116a",
+        "name": "Weather Import",
+        "func": "weather.find({search: 'San Francisco, CA', degreeType: 'F'}, function(err, result) {\n  if(err) console.log(err);\n \n  //console.log(JSON.stringify(result, null, 2));\n\n  node.send({\n    payload: result\n  })\n});\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "weather",
+                "module": "weather-js"
+            }
+        ],
+        "x": 360,
+        "y": 1400,
+        "wires": [
+            [
+                "5e8c3339323c78f2"
+            ]
+        ]
+    },
+    {
+        "id": "2332499d61643eb9",
+        "type": "inject",
+        "z": "5c991107a3ac116a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 1400,
+        "wires": [
+            [
+                "268535e3072d2097"
+            ]
+        ]
+    },
+    {
+        "id": "5e8c3339323c78f2",
+        "type": "debug",
+        "z": "5c991107a3ac116a",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "787336365938138c",
+        "type": "comment",
+        "z": "5c991107a3ac116a",
+        "name": "External Libraries",
+        "info": "",
+        "x": 160,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "f54ba7b7e07029f7",
+        "type": "comment",
+        "z": "5c991107a3ac116a",
+        "name": "Supabase",
+        "info": "",
+        "x": 160,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "666a471753936d66",
+        "type": "comment",
+        "z": "5c991107a3ac116a",
+        "name": "Weather",
+        "info": "",
+        "x": 160,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "2f3e7d8357458285",
+        "type": "function",
+        "z": "5c991107a3ac116a",
+        "name": "Supabase Query",
+        "func": "node.status({\n    fill:\"red\",\n    shape:\"ring\",\n    text:\"No KEY\"});\n\nconst client = supabase(\n  'https://xyzcompany.supabase.co', \n  'public-anon-key'\n)\n\nconst { data, error }  = await client\n  .from('Table')\n  .select(\"*\")\n\n  msg.payload = data\n  return msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "supabase",
+                "module": "@supabase/supabase-js"
+            }
+        ],
+        "x": 370,
+        "y": 1520,
+        "wires": [
+            [
+                "fce1499d8c604cf7"
+            ]
+        ]
+    },
+    {
+        "id": "732edf6fdaf32e01",
+        "type": "inject",
+        "z": "5c991107a3ac116a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 1520,
+        "wires": [
+            [
+                "2f3e7d8357458285"
+            ]
+        ]
+    },
+    {
+        "id": "fce1499d8c604cf7",
+        "type": "debug",
+        "z": "5c991107a3ac116a",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 1520,
+        "wires": []
+    }
+]

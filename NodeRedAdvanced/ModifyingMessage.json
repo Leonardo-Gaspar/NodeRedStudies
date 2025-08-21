@@ -1,0 +1,397 @@
+[
+    {
+        "id": "507fbfda13ed297d",
+        "type": "tab",
+        "label": "Modifying Messages",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ee1ca1c97fae4450",
+        "type": "template",
+        "z": "507fbfda13ed297d",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "This is the payload: {{payload}}!\n\nthis is the example: {{flow.example}}!\n\nWE are running the {{env.COURSE}} course",
+        "output": "str",
+        "x": 300,
+        "y": 160,
+        "wires": [
+            [
+                "42cc0ae48d120a88"
+            ]
+        ]
+    },
+    {
+        "id": "4eb1a9dbee260d5b",
+        "type": "inject",
+        "z": "507fbfda13ed297d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 160,
+        "wires": [
+            [
+                "ee1ca1c97fae4450"
+            ]
+        ]
+    },
+    {
+        "id": "42cc0ae48d120a88",
+        "type": "debug",
+        "z": "507fbfda13ed297d",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "9bdac14d7b497270",
+        "type": "inject",
+        "z": "507fbfda13ed297d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 80,
+        "wires": [
+            [
+                "691163769aa17282"
+            ]
+        ]
+    },
+    {
+        "id": "691163769aa17282",
+        "type": "change",
+        "z": "507fbfda13ed297d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "example",
+                "pt": "flow",
+                "to": "Hello World!!",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "70a263a6e0df08c0",
+        "type": "inject",
+        "z": "507fbfda13ed297d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[{\"name\":\"Apple\",\"color\":\"Red\"},{\"name\":\"Banana\",\"color\":\"Yellow\"},{\"name\":\"Apples\",\"color\":\"Green\"}]",
+        "payloadType": "json",
+        "x": 130,
+        "y": 240,
+        "wires": [
+            [
+                "31d81de93610aa36"
+            ]
+        ]
+    },
+    {
+        "id": "31d81de93610aa36",
+        "type": "template",
+        "z": "507fbfda13ed297d",
+        "name": "Loops Example",
+        "field": "content",
+        "fieldType": "flow",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<ul>\n    {{ #payload }}\n        <li> {{ name }} - {{ color }} </li>\n    {{ /payload }}\n</ul>",
+        "output": "str",
+        "x": 320,
+        "y": 240,
+        "wires": [
+            [
+                "e9ef6bf67a376d83"
+            ]
+        ]
+    },
+    {
+        "id": "e9ef6bf67a376d83",
+        "type": "debug",
+        "z": "507fbfda13ed297d",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "0a4966220fa29ae5",
+        "type": "inject",
+        "z": "507fbfda13ed297d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "80fdc5a08c016e47"
+            ]
+        ]
+    },
+    {
+        "id": "80fdc5a08c016e47",
+        "type": "template",
+        "z": "507fbfda13ed297d",
+        "name": "If/Else Example",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{ #payload }}\n\n<div>\n    This is div 1\n</div>\n{{ /payload }}\n<div>\n    This is div 2\n</div>",
+        "output": "str",
+        "x": 340,
+        "y": 360,
+        "wires": [
+            [
+                "3634bdd04d273eba"
+            ]
+        ]
+    },
+    {
+        "id": "3634bdd04d273eba",
+        "type": "debug",
+        "z": "507fbfda13ed297d",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "39c80270767feb82",
+        "type": "inject",
+        "z": "507fbfda13ed297d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [
+                "80fdc5a08c016e47"
+            ]
+        ]
+    },
+    {
+        "id": "404863be58ae16cf",
+        "type": "http in",
+        "z": "507fbfda13ed297d",
+        "name": "",
+        "url": "/template-demo",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 480,
+        "wires": [
+            [
+                "1842d0f9e1a3305e"
+            ]
+        ]
+    },
+    {
+        "id": "aa258c9964e6ef9b",
+        "type": "http response",
+        "z": "507fbfda13ed297d",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "d064d3fdf1912272",
+        "type": "http in",
+        "z": "507fbfda13ed297d",
+        "name": "",
+        "url": "/dados",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 580,
+        "wires": [
+            [
+                "a977b342ab1aa11f"
+            ]
+        ]
+    },
+    {
+        "id": "0741bf1d342bd82a",
+        "type": "http response",
+        "z": "507fbfda13ed297d",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "cb85c6b5f6a89b62",
+        "type": "template",
+        "z": "507fbfda13ed297d",
+        "name": "Fruits Example",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<ul>\n    {{ #payload }}\n        <li> {{ name }} - {{ color }} </li>\n    {{ /payload }}\n</ul>",
+        "output": "str",
+        "x": 500,
+        "y": 580,
+        "wires": [
+            [
+                "0741bf1d342bd82a"
+            ]
+        ]
+    },
+    {
+        "id": "a977b342ab1aa11f",
+        "type": "function",
+        "z": "507fbfda13ed297d",
+        "name": "Criar JSON",
+        "func": "msg.payload = [\n    { \"name\": \"Apple\", \"color\": \"Red\" },\n    { \"name\": \"Banana\", \"color\": \"Yellow\" },\n    { \"name\": \"Pear\", \"color\": \"Green\" }\n];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 580,
+        "wires": [
+            [
+                "cb85c6b5f6a89b62"
+            ]
+        ]
+    },
+    {
+        "id": "1842d0f9e1a3305e",
+        "type": "change",
+        "z": "507fbfda13ed297d",
+        "name": "Set Content",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "content",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 480,
+        "wires": [
+            [
+                "aa258c9964e6ef9b"
+            ]
+        ]
+    }
+]
