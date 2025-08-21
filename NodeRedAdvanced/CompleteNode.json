@@ -1,0 +1,131 @@
+[
+    {
+        "id": "72326142184ec32e",
+        "type": "tab",
+        "label": "Complete Node",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d4931bc1c46741b6",
+        "type": "junction",
+        "z": "72326142184ec32e",
+        "x": 540,
+        "y": 100,
+        "wires": [
+            [
+                "86f7a6a5a6465a41"
+            ]
+        ]
+    },
+    {
+        "id": "e5bdf3a2b6742a2d",
+        "type": "complete",
+        "z": "72326142184ec32e",
+        "name": "",
+        "scope": [
+            "a296d653e14db196"
+        ],
+        "uncaught": false,
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "5c2138b4b136c3e0"
+            ]
+        ]
+    },
+    {
+        "id": "86f7a6a5a6465a41",
+        "type": "debug",
+        "z": "72326142184ec32e",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "c00e01039187e53c",
+        "type": "inject",
+        "z": "72326142184ec32e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 80,
+        "wires": [
+            [
+                "a296d653e14db196"
+            ]
+        ]
+    },
+    {
+        "id": "5c2138b4b136c3e0",
+        "type": "change",
+        "z": "72326142184ec32e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Loop has finished via complete",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 120,
+        "wires": [
+            [
+                "d4931bc1c46741b6"
+            ]
+        ]
+    },
+    {
+        "id": "a296d653e14db196",
+        "type": "function",
+        "z": "72326142184ec32e",
+        "name": "function 1",
+        "func": "for (let i = 0; i < 5; i++){\n    node.send({\n        payload: i\n    })\n}\nnode.done()\n\nreturn {\n    payload: \"Loop finished via return \"\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 80,
+        "wires": [
+            [
+                "d4931bc1c46741b6"
+            ]
+        ]
+    }
+]
